@@ -1,0 +1,6 @@
+.git
+StoryBoard.pdf
+django_backend/
+migrations/
+__pycache__/
+.vscode/
