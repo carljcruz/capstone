@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Picker} from '@react-native-picker/picker';
 import {View, Text, StyleSheet} from 'react-native';
 const LocationPicker = () => {
-  const [setLocation, setSelectedLocation] = useState('Manila');
+  const [selectLocation, setSelectedLocation] = useState('Manila');
 
   const handleValueChange = (itemValue, itemIndex) => {
     setSelectedLocation(itemValue);
@@ -11,11 +11,9 @@ const LocationPicker = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>Find a Doctor</Text>
-
-      <Text style={styles.tinyHeader}>Specialization</Text>
       <Picker
-        selectedValue={selectDoctor}
+        selectedValue={selectLocation}
+        dropdownIconColor="#6200EE"
         style={styles.dropDown}
         onValueChange={handleValueChange}>
         <Picker.Item label="Makati" value="MNL" />
@@ -29,28 +27,29 @@ const LocationPicker = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-  },
-  header: {
-    fontSize: 50,
-    color: '#19769f',
-  },
-
-  tinyHeader: {
-    fontSize: 35,
-    color: '#19769f',
+    borderColor: '#6200EE',
+    borderWidth: 0.8,
+    borderRadius: 0,
   },
   dropDown: {
-    height: 50,
     width: 250,
+    marginLeft: 100,
   },
   button: {
     alignItems: 'center',
-    backgroundColor: '#19769f',
+    backgroundColor: '#6200EE',
     padding: 15,
   },
   buttonText: {
     color: 'white',
+  },
+  items: {
+    color: '#6D6D6D',
+    backgroundColor: '#FFF',
+    marginBottom: 20,
+    height: 40,
+    alignSelf: 'center',
+    justifyContent: 'center',
   },
 });
 
