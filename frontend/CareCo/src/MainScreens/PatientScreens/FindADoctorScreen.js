@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 
 import SpecializationPicker from '../../Components/FindDoctorComponents/SpecializationPicker';
-import LocationPicker from '../../Components/FindDoctorComponents/SpecializationPicker';
+import LocationPicker from '../../Components/FindDoctorComponents/LocationPicker';
 export default FindADoctorScreen = () => {
   return (
     <View style={styles.container}>

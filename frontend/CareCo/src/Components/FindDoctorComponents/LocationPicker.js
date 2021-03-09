@@ -11,7 +11,6 @@ const LocationPicker = () => {
 
   return (
     <View style={styles.container}>
-      {/* Find a doctor text */}
       <Text style={styles.header}>Find a Doctor</Text>
 
       <Text style={styles.tinyHeader}>Specialization</Text>
