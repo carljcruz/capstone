@@ -4,7 +4,7 @@ import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
-import FindADoctorScreen from './src/MainScreens/PatientScreens/FindADoctorScreen';
+import DoctorList from './src/MainScreens/PatientScreens/DoctorList';
 
 const Stack = createStackNavigator();
 
@@ -15,7 +15,7 @@ function App() {
         screenOptions={{
           headerShown: false,
         }}>
-        <Stack.Screen name="Home" component={FindADoctorScreen} />
+        <Stack.Screen name="Home" component={DoctorList} />
       </Stack.Navigator>
     </NavigationContainer>
   );

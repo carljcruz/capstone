@@ -5782,6 +5782,11 @@ react-native-material-ripple@^0.8.0:
   dependencies:
     prop-types "^15.5.10"
 
+react-native-paper-dates@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/react-native-paper-dates/-/react-native-paper-dates-0.4.0.tgz#c263d1a5da0468060b6d76829edb1c7828c17a78"
+  integrity sha512-9WW3tOvf+R6jtihb0bKPeg2b0w2AF8l0NHDT1DDD3yk0xDroivd3q7oG7y/x/xO+uo6mD4oQwbsZjKK5FJV2dw==
+
 react-native-paper-dropdown@^0.0.5:
   version "0.0.5"
   resolved "https://registry.yarnpkg.com/react-native-paper-dropdown/-/react-native-paper-dropdown-0.0.5.tgz#d5358519c0e503bd24f742d43306503d9d618150"
