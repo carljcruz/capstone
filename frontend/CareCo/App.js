@@ -4,7 +4,7 @@ import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
-import DoctorList from './src/MainScreens/PatientScreens/DoctorList';
+import CreateAppointment from './src/MainScreens/PatientScreens/CreateAppointment';
 
 const Stack = createStackNavigator();
 
@@ -15,7 +15,7 @@ function App() {
         screenOptions={{
           headerShown: false,
         }}>
-        <Stack.Screen name="Home" component={DoctorList} />
+        <Stack.Screen name="Home" component={CreateAppointment} />
       </Stack.Navigator>
     </NavigationContainer>
   );

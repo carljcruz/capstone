@@ -1130,6 +1130,13 @@
     sudo-prompt "^9.0.0"
     wcwidth "^1.0.1"
 
+"@react-native-community/datetimepicker@^3.2.0":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@react-native-community/datetimepicker/-/datetimepicker-3.2.0.tgz#757ae731bab4442842a4a884941239efa75f371f"
+  integrity sha512-RX4/mi2beCiJXakJJr9bJrqNSfu7wc69Q0gPw21m/PdpYM14bJplVgjmL0hm3VSedj3Eg/dErWy5DdLM8upS/A==
+  dependencies:
+    invariant "^2.2.4"
+
 "@react-native-community/eslint-config@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@react-native-community/eslint-config/-/eslint-config-1.1.0.tgz#2dacad06dd44d13e778510864473fc6091f080c0"
@@ -5781,11 +5788,6 @@ react-native-material-ripple@^0.8.0:
   integrity sha1-uMJOb96iryoh6EaLH0CzVIMBni8=
   dependencies:
     prop-types "^15.5.10"
-
-react-native-paper-dates@^0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/react-native-paper-dates/-/react-native-paper-dates-0.4.0.tgz#c263d1a5da0468060b6d76829edb1c7828c17a78"
-  integrity sha512-9WW3tOvf+R6jtihb0bKPeg2b0w2AF8l0NHDT1DDD3yk0xDroivd3q7oG7y/x/xO+uo6mD4oQwbsZjKK5FJV2dw==
 
 react-native-paper-dropdown@^0.0.5:
   version "0.0.5"
