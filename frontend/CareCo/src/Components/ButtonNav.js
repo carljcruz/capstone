@@ -17,5 +17,3 @@ const ButtonNav = (props) => {
 };
 
 export default ButtonNav;
-
-jumps;
