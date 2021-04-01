@@ -4,8 +4,9 @@ import {View, StyleSheet} from 'react-native';
 import Header from '../Components/Header';
 import AuthForm from '../Components/AuthForm';
 import Links from '../Components/Links';
+import {configureFonts} from 'react-native-paper';
 
-export default PatientLoginScreen = () => {
+const PatientLoginScreen = () => {
   return (
     <View style={styles.container}>
       <Header title="SIGN IN" />
@@ -33,3 +34,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default PatientLoginScreen;
