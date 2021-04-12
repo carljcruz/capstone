@@ -2,7 +2,6 @@ from .models import User, Patient, Doctor, Prescription
 from rest_framework import serializers
 from rest_framework_simplejwt.tokens import RefreshToken
 
-
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import update_last_login
 

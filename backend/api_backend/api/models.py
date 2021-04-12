@@ -6,7 +6,6 @@ from django.contrib.auth.base_user import AbstractBaseUser
 from django.utils import timezone
 from django.conf import settings
 
-
 from .managers import CustomUserManager
 
 
@@ -91,7 +90,6 @@ class Doctor(models.Model):
     def __str__(self):
         return self.user.email
 
-
 class Prescription(models.Model):
     owner = models.ForeignKey(
         User, on_delete=models.CASCADE, null=True, related_name='prescriptions')
@@ -100,3 +98,4 @@ class Prescription(models.Model):
 
     def __str__(self):
         return self.prescription_name
+

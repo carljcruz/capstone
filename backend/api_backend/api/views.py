@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework import generics
 from django_filters import rest_framework as filters
-from django_filters.rest_framework import DjangoFilterBackend
+from django_filters.rest_framework import DjangoFilterBackend # type: ignore
 from .serializers import (
     UserRegistrationSerializer,
     UserLoginSerializer,
@@ -17,12 +17,10 @@ from .serializers import (
     PrescriptionListSerializer,
     DoctorProfileSerializer,
 )
-
 from .models import User, Prescription, Patient, Doctor
 
-
 class DoctorFilter(filters.FilterSet):
-    specialization = filters.CharFilter(specialization='data__specialization')
+    specialization = filters.CharFilter(specialization='data__specialization') # type: ignore
 
     class Meta:
         model = Doctor
@@ -253,3 +251,5 @@ class GetSingleDoctor(generics.RetrieveAPIView):
     serializer_class = DoctorProfileSerializer
     # filter_backends = (filters.DjangoFilterBackend,)
     # filterset_fields = {'pk'}
+
+
