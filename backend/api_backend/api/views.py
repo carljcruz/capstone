@@ -4,7 +4,6 @@ from rest_framework.response import Response
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework import generics
 from django_filters import rest_framework as filters
-from django_filters.rest_framework import DjangoFilterBackend # type: ignore
 from .serializers import (
     UserRegistrationSerializer,
     UserLoginSerializer,
@@ -14,10 +13,9 @@ from .serializers import (
     UpdatePatientSerializer,
     UpdateDoctorSerializer,
     PrescriptionSerializer,
-    PrescriptionListSerializer,
     DoctorProfileSerializer,
 )
-from .models import User, Prescription, Patient, Doctor
+from .models import User, Prescription, Doctor
 
 class DoctorFilter(filters.FilterSet):
     specialization = filters.CharFilter(specialization='data__specialization') # type: ignore
@@ -108,6 +106,7 @@ class UserLoginView(APIView):
         if valid:
             status_code = status.HTTP_200_OK
             user = request.user
+            print(user)
 
             response = {
                 'success': True,
@@ -171,6 +170,7 @@ class HelloView(APIView):
 
     def get(self, request):
         content = {'message': 'Request granted po hello'}
+        print(request)
         return Response(content)
 
 
@@ -251,5 +251,4 @@ class GetSingleDoctor(generics.RetrieveAPIView):
     serializer_class = DoctorProfileSerializer
     # filter_backends = (filters.DjangoFilterBackend,)
     # filterset_fields = {'pk'}
-
-
+# I'm gonna be the best to ever to this.

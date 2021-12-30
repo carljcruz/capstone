@@ -4,8 +4,6 @@ from django.db import models
 from django.contrib.auth.models import PermissionsMixin
 from django.contrib.auth.base_user import AbstractBaseUser
 from django.utils import timezone
-from django.conf import settings
-
 from .managers import CustomUserManager
 
 
@@ -56,7 +54,6 @@ class Patient(models.Model):
     first_name = models.CharField(max_length=30, blank=True)
     last_name = models.CharField(max_length=50, blank=True)
     age = models.CharField(max_length=3)
-    bio = models.CharField(max_length=100)
 
     def __str__(self):
         return self.user.email
@@ -83,8 +80,6 @@ class Doctor(models.Model):
                                 related_name='doctor_profile')
     first_name = models.CharField(max_length=30, blank=True)
     last_name = models.CharField(max_length=50, blank=True)
-    age = models.CharField(max_length=3)
-    bio = models.CharField(max_length=100)
     specialization = models.CharField(
         max_length=50, blank=True, choices=SPECIALIZATION_CHOICES, default=ALLERGISTS)
     education = models.CharField(max_length=20)

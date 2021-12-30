@@ -2,9 +2,8 @@ from .models import User, Patient, Doctor, Prescription
 from rest_framework import serializers
 from rest_framework_simplejwt.tokens import RefreshToken
 
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate
 from django.contrib.auth.models import update_last_login
-
 
 class UserRegistrationSerializer(serializers.ModelSerializer):
     class Meta:
@@ -16,7 +15,7 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
         )
 
     def create(self, validated_data):
-        auth_user = User.objects.create_user(**validated_data)
+        auth_user = User.objects.create_user(**validated_data) # type:ignore
         auth_user.role = 1
         auth_user.save()
         return auth_user
@@ -43,7 +42,7 @@ class PatientRegistrationSerializer(serializers.ModelSerializer):
         )
 
     def create(self, validated_data):
-        auth_user = User.objects.create_user(
+        auth_user = User.objects.create_user( # type:ignore
             email=validated_data['email'],
             password=validated_data['password'],
         )
@@ -51,11 +50,12 @@ class PatientRegistrationSerializer(serializers.ModelSerializer):
         auth_user.save()
 
         patient_profile = validated_data.pop('patient_profile')
-        patient = Patient.objects.create(user=auth_user,
+        patient = Patient.objects.create(user=auth_user, 
                                          bio=patient_profile['bio'],
                                          age=patient_profile['age'],
                                          first_name=patient_profile['first_name'],
                                          last_name=patient_profile['last_name'])
+        print(patient)
 
         return auth_user
 
@@ -106,7 +106,7 @@ class DoctorRegistrationSerializer(serializers.ModelSerializer):
         )
 
     def create(self, validated_data):
-        auth_user = User.objects.create_user(
+        auth_user = User.objects.create_user( #type:ignore
             email=validated_data['email'],
             password=validated_data['password'],
         )
@@ -121,6 +121,7 @@ class DoctorRegistrationSerializer(serializers.ModelSerializer):
                                        last_name=doctor_profile['last_name'],
                                        specialization=doctor_profile['specialization'],
                                        education=doctor_profile['education'])
+        print(doctor)
         return auth_user
 
 # serializer user login
@@ -135,9 +136,11 @@ class UserLoginSerializer(serializers.Serializer):
     role = serializers.CharField(read_only=True)
 
     def create(self, validated_date):
+        print(validated_date)
         pass
 
     def update(self, instance, validated_data):
+        print(instance, validated_data)
         pass
 
     def validate(self, data):
@@ -153,13 +156,13 @@ class UserLoginSerializer(serializers.Serializer):
             refresh_token = str(refresh)
             access_token = str(refresh.access_token)
 
-            update_last_login(None, user)
+            update_last_login(None, user) # type:ignore
 
             validation = {
                 'access': access_token,
                 'refresh': refresh_token,
-                'email': user.email,
-                'role': user.role,
+                'email': user.email, # type:ignore
+                'role': user.role, # type:ignore
                 # 'id': user.id
             }
 
@@ -191,7 +194,7 @@ class UpdatePatientSerializer(serializers.ModelSerializer):
                   'last_name', 'bio', 'age']
 
     def save(self, **kwargs):
-        patient_profile = self.validated_data.pop('patient_profile')
+        patient_profile = self.validated_data.pop('patient_profile') # type:ignore
         instance = super().save(**kwargs)
         Patient.objects.update_or_create(
             user=instance, defaults=patient_profile)
@@ -213,13 +216,14 @@ class UpdateDoctorSerializer(serializers.ModelSerializer):
                   'last_name', 'bio', 'age', 'specialization', 'education']
 
     def save(self, **kwargs):
-        doctor_profile = self.validated_data.pop('doctor_profile')
+        doctor_profile = self.validated_data.pop('doctor_profile') # type:ignore
         instance = super().save(**kwargs)
         Doctor.objects.update_or_create(user=instance, defaults=doctor_profile)
         return instance
 
-
+# TODO: Make this expire in 5 days
 class PrescriptionSerializer(serializers.ModelSerializer):
+    """ Somthing """
     model = Prescription
     owner = serializers.HiddenField(
         default=serializers.CurrentUserDefault()
@@ -230,9 +234,11 @@ class PrescriptionSerializer(serializers.ModelSerializer):
         fields = ['owner', 'id', 'prescription_name', 'prescription_details']
 
 
+# Prescription List Serializers
 class PrescriptionListSerializer(serializers.ModelSerializer):
 
     class Meta:
 
         model = User
         fields = ['prescriptions.prescription_name', ]
+
