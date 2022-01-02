@@ -27,3 +27,5 @@ class CustomUserManager(BaseUserManager):
         if extra_fields.get('role') != 1:
             raise ValueError('Superuser must have role of Global Admin')
         return self.create_user(email, password, **extra_fields)
+
+    

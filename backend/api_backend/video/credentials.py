@@ -17,7 +17,10 @@ secret_key = 'evafaDLAyLCmNth7Up76ohkab8MGJtak'
 #     key does not work, try again
 
 
-# def get_room():
-#     ''' Function to get room
-#         and pass the credentials'''
+def get_api_key(api):
+    """ API KEY """
+    api = 'evafaDLAyLCmNth7Up76ohkab8MGJtak'
+    return api
+
+
 
