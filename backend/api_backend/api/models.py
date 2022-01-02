@@ -46,7 +46,6 @@ class User(AbstractBaseUser, PermissionsMixin):
         verbose_name = 'user'
         verbose_name_plural = 'users'
 
-
 class Patient(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE,
                                 null=True,
