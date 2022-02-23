@@ -50,7 +50,7 @@ class PatientRegistrationSerializer(serializers.ModelSerializer):
         auth_user.save()
 
         patient_profile = validated_data.pop('patient_profile')
-        patient = Patient.objects.create(user=auth_user, 
+        patient = Patient.objects.create(user=auth_user,
                                          bio=patient_profile['bio'],
                                          age=patient_profile['age'],
                                          first_name=patient_profile['first_name'],
@@ -200,7 +200,6 @@ class UpdatePatientSerializer(serializers.ModelSerializer):
             user=instance, defaults=patient_profile)
         return instance
 
-
 class UpdateDoctorSerializer(serializers.ModelSerializer):
     first_name = serializers.CharField(source='doctor_profile.first_name')
     last_name = serializers.CharField(source='doctor_profile.last_name')
@@ -209,7 +208,6 @@ class UpdateDoctorSerializer(serializers.ModelSerializer):
     credentials = serializers.CharField(source='doctor_profile.credentials')
     education = serializers.CharField(source='doctor_profile.education')
 
-    # test commit
     class Meta:
         model = User
         fields = ['id', 'email', 'first_name',

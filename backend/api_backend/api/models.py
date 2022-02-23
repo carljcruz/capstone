@@ -57,7 +57,6 @@ class Patient(models.Model):
     def __str__(self):
         return self.user.email
 
-
 class Doctor(models.Model):
 
     ALLERGISTS = 'Allergists'

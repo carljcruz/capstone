@@ -155,6 +155,7 @@ class UpdatePatientProfileView(generics.UpdateAPIView):
     queryset = User.objects.all()
     permission_classes = (IsAuthenticated,)
     serializer_class = UpdatePatientSerializer
+    
 
 
 class UpdateDoctorProfileView(generics.UpdateAPIView):
@@ -252,3 +253,4 @@ class GetSingleDoctor(generics.RetrieveAPIView):
     # filter_backends = (filters.DjangoFilterBackend,)
     # filterset_fields = {'pk'}
 # I'm gonna be the best to ever to this.
+
